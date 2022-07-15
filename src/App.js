@@ -5,7 +5,6 @@ import ContactMe from './components/ContacMe';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 
-
 const App = () => {
 
   return (

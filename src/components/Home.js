@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import useFetch from "../hooks/useFetch";
 
 const Home = () => {
 
-    const [ data, setData ] = useState("")
-
-    useEffect( () => {
-        fetch("https://api.thecatapi.com/v1/breeds")
-        .then( respuesta => respuesta.json())
-        .then( data => {
-
-           console.log(data[1].image.url)
-
-        })
+    const data = useFetch("post", {
+        name: "Carola",
+        job: "programmer"
     })
+    console.log(data)
 
+    
 
 
     return(
