@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useFetch = ( request , info ) => {
+const useFetch = ( request , info, id ) => {
     
     const [ data, setData ] = useState([])  
-    const verifyRequest = ( request ) => request === "get" || "post" ? "https://reqres.in/api/users" : "https://reqres.in/api/users/2"
+    const verifyRequest = ( request ) => request === "get" || "post" ? "https://reqres.in/api/users" : `https://reqres.in/api/users/${id}`
     const url = verifyRequest(request)    
 
     useEffect(() => {       
@@ -53,7 +53,7 @@ const useFetch = ( request , info ) => {
                 .then(res => res.json())
                 .then(data => console.log(data))
             }
-    }, [data])
+    }, [""])
     
     return data
 }
