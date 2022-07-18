@@ -7,7 +7,7 @@ const Nav = () => {
     return (
         <nav className="flex w-full justify-between shadow-xl">
             <div className="m-5">
-                <h1 className="text-xl">
+                <h1 className="text-xl font-bold">
                     Métodos HTTP
                 </h1>
             </div>

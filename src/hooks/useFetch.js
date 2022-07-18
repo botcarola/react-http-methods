@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useFetch = ( request , info, id ) => {
+const useFetch = ( request, paginacion, info, id ) => {
     
     const [ data, setData ] = useState([])  
+    const [ paginado, setPaginado ] = useState(paginacion)
     const verifyRequest = ( request ) => request === "get" || "post" ? "https://reqres.in/api/users" : `https://reqres.in/api/users/${id}`
     const url = verifyRequest(request)    
 
@@ -43,7 +44,7 @@ const useFetch = ( request , info, id ) => {
                     console.log(data)
                 })
             }
-            else {
+            else if (request === "delete") {
                 fetch(url, {
                     method: "DELETE",
                     headers: {
@@ -53,7 +54,7 @@ const useFetch = ( request , info, id ) => {
                 .then(res => res.json())
                 .then(data => console.log(data))
             }
-    }, [""])
+    }, [paginado])
     
     return data
 }
